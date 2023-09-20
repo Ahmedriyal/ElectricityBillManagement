@@ -22,7 +22,7 @@
             <div class="modal-content">
               <span class="close" onclick="closeForm()">&times;</span>
               <h1 class="popup-signin-account" style="text-align: center;">Add New Occupant</h1>
-              <form action="" method="POST" enctype="multipart/form-data class="popup-formsignIn" style="display: grid; grid-template-columns: auto auto; gap: 10px;">
+              <form action="" method="POST" enctype="multipart/form-data class="popup-formsignIn">
                 {% csrf_token %}
                 {% include 'form.html' with form=form %}
                 <div class="popup-btn2">
@@ -45,26 +45,18 @@
         <table class="table table-hover table-sm">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Occupant Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Status</th>
+                <th scope="col">Floor</th>
+                <th scope="col">Unit</th>
               </tr>
             </thead>
             <tbody>
-                {% if occupant %}
-                {% for occupant in occupant %}
+                {% if unit %}
+                {% for unit in unit %}
                 <tr>
-                    <td class="serial">{{ forloop.counter }}</td>
-                    <td>{{ occupant.occupant_name }}</td>
-                    <td>{{ occupant.email }}</td>
-                    <td>{{ occupant.phone }}</td>
-                    <td>{{ occupant.start_date }}</td>
-                    <td>{{ occupant.end_date }}</td>
-                    <td>{{ occupant.status }}</td>
+                    <td>{{ unit.occupant_id }}</td>
+                    <td>{{ unit.floor_id }}</td>
+                    <td>{{ unit.unit }}</td>
                 </tr>
                 {% endfor %}
                 {% else %}

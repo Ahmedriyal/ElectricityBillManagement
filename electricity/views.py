@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.http import HttpResponse
+from urllib import request
 from .models import *
+from .forms import *
 
 
 # /----- Views for Homepage -----/
@@ -70,11 +73,69 @@ def logout(request):
     return redirect('/')
 
 # /----- Views for Occupants -----/
-def occupants(request):
-    # occupant = occupants.objects.all()
+def occupant(request):
+    occupant = occupants.objects.all()
+    if request.method == 'POST':
+        form = OccupantsForm(request.POST)
+        if form.is_valid():
+            occupant_name = request.POST['occupant_name']
 
+            if occupants.objects.filter(occupant_name=occupant_name).exists():
+                messages.error(request, "Occupant exist")
+                return redirect('occupants')
+            else:
+                occupant = form.save(commit=False)
+                occupant.save()
+
+                return redirect('occupants')
+    else:
+        form = OccupantsForm()
 
     
 
-    # context = {'occupant': occupant,}
-    return render(request, 'occupants.html')
+    context = {'form': form, 'occupant': occupant}
+    return render(request, 'occupants.html', context)
+
+
+# /----- Views for Floors -----/
+def floor(request):
+    floor = floors.objects.all()
+    if request.method == 'POST':
+        form = FloorsForm(request.POST)
+        if form.is_valid():
+            floor_name = request.POST['floor_name']
+
+            if floors.objects.filter(floor_name=floor_name).exists():
+                messages.error(request, "Floor already exist")
+                return redirect('floors')
+            else:
+                occupant = form.save(commit=False)
+                occupant.save()
+
+                return redirect('floors')
+    else:
+        form = FloorsForm()
+
+    
+
+    context = {'form': form, 'floor': floor}
+    return render(request, 'floors.html', context)
+
+
+# /----- Views for Floors Unit -----/
+def unit(request):
+    unit = locations.objects.all()
+    if request.method == 'POST':
+        form = UnitForm(request.POST)
+        if form.is_valid():
+            unit = form.save(commit=False)
+            unit.save()
+
+            return redirect('units')
+    else:
+        form = UnitForm()
+
+    
+
+    context = {'form': form, 'unit': unit}
+    return render(request, 'units.html', context)
