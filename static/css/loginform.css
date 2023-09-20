@@ -1,0 +1,124 @@
+
+
+.signIn{
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    font-size: 15px;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ----- Popup Sign In Form ----- */
+.popup{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    position: fixed;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    text-align: left;
+    padding: 15px 30px 35px 30px;
+    width: 25%;
+  }
+  
+  .popup-signin-account .far{
+      font-size: 25px;
+      margin-right: 25px;
+  }
+  
+  .popup-signin-account{
+      padding-top: 20px;
+      text-transform: uppercase;
+      font-size: 25px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+  }
+  
+  .popup-formsignIn{
+      margin-top: 30px;
+  }
+  
+  .popup-signin-username, .popup-signin-password{
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+  }
+  
+  .popup-signin-form-input{
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      width: 100%;
+      margin-bottom: 30px;
+      background: #f6f6f6;
+      border: 1px solid #c6c6c6;
+      color: black;
+  }
+  
+  .popup-btn2{
+      padding-bottom: 10px;
+  }
+  
+  .popup-btn-signin{
+      padding: 9px 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      background: #101820FF;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+  }
+  
+  .popup-btn-signin:hover{
+      background: #616161;
+  }
+  
+  .popup-signup-title{
+      font-size: 13px;
+      font-weight: 500;
+      padding-bottom: 10px;
+  }
+  
+  .popup-text{
+      text-decoration: none;
+      color: #ff2121;
+      transition: all 0.3s ease;
+  }
+  
+  .popup-text:hover{
+      text-decoration: underline;
+  }
+  
+  .forgot{
+      font-size: 13px;
+      text-decoration: none;
+      color: #ff2121;
+      transition: all 0.3s ease;
+  }
+  
+  .forgot:hover{
+      text-decoration: underline;
+  }
