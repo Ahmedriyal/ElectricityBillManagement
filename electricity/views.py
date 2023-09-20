@@ -3,7 +3,8 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import *
 
-# Create your views here.
+
+# /----- Views for Homepage -----/
 def home(request):
 
 
@@ -67,3 +68,13 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+# /----- Views for Occupants -----/
+def occupants(request):
+    # occupant = occupants.objects.all()
+
+
+    
+
+    # context = {'occupant': occupant,}
+    return render(request, 'occupants.html')
