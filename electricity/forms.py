@@ -7,6 +7,15 @@ class OccupantsForm(forms.ModelForm):
     class Meta:
         model = occupants
         fields = '__all__'
+        exclude = ('status',)
+        widgets = {
+            'start_date': forms.DateInput(
+                attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)'}
+            ),
+            'end_date': forms.DateInput(
+                attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)'}
+            )
+        }
 
 # ------ Floors Form ------
 class FloorsForm(forms.ModelForm):
